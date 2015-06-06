@@ -12,6 +12,7 @@ import android.content.IntentFilter;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
@@ -29,6 +30,8 @@ import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,8 +40,16 @@ import java.util.List;
 import java.util.Map;
 
 import ericfujii.com.br.atendimentomobile.R;
+import ericfujii.com.br.atendimentomobile.entities.Pedido;
+import ericfujii.com.br.atendimentomobile.entities.Produto;
+import ericfujii.com.br.atendimentomobile.entities.ProdutoTipo;
 import ericfujii.com.br.atendimentomobile.entities.Sessao;
+import ericfujii.com.br.atendimentomobile.entities.Usuario;
+import ericfujii.com.br.atendimentomobile.rest.ECodigoFuncao;
+import ericfujii.com.br.atendimentomobile.rest.ECodigoRequest;
+import ericfujii.com.br.atendimentomobile.rest.ECodigoResponse;
 import ericfujii.com.br.atendimentomobile.rest.RequestAtendimentoRest;
+import ericfujii.com.br.atendimentomobile.rest.ResponseAtendimentoRest;
 import ericfujii.com.br.atendimentomobile.utils.D2DRestClient;
 import ericfujii.com.br.atendimentomobile.utils.EntityManager;
 import ericfujii.com.br.atendimentomobile.utils.JsonParser;
@@ -46,19 +57,12 @@ import ericfujii.com.br.atendimentomobile.utils.UtilActivity;
 
 public class MainActivity extends Activity {
 
-    private int tempoAccordion = 750;
-
-    private BroadcastReceiver mReceiver;
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
-    private ListView mDrawerListRight;
-    private ListView listChat;
 
     private RelativeLayout menuEsquerdoRL;
     private RelativeLayout aguardeRL;
-    private Boolean menuAgendamentosAberto = false;
-    private Boolean menuChatAberto = true;
     private TextView nomeUsuarioTV;
 
     private boolean mDisplayBlocked = false;
@@ -136,36 +140,73 @@ public class MainActivity extends Activity {
         mDisplayBlocked = false;
     }
 
-    private List<Map<String, Object>> listarAgendamentos() {
-        itens = new ArrayList<>();
-
-        Map<String, Object> item = new HashMap<>();
-        item.put("nome", "Nome de Teste");
-        item.put("razao", "Nao esta em casa");
-        item.put("horario", "17:30");
-        itens.add(item);
-
-        return itens;
-    }
-
-    private List<Map<String, Object>> listarContatos() {
-        itens = new ArrayList<>();
-
-        Map<String, Object> item = new HashMap<>();
-        item.put("nomeContato", "Nome do Contato");
-        itens.add(item);
-
-        item = new HashMap<>();
-        item.put("nomeContato", "Nome do Contato");
-        itens.add(item);
-
-        return itens;
-    }
-
     public void abrirConfiguracoes(View view) {
         /*Intent intentConf = new Intent(this, ConfiguracoesActivity.class);
         startActivity(intentConf);
         finish();*/
+    }
+
+    public void executarCarga(View view) {
+        try {
+            AsyncTask<Void, Void, ResponseAtendimentoRest> taskCarga = new AsyncTask<Void, Void, ResponseAtendimentoRest>() {
+                @Override
+                protected ResponseAtendimentoRest doInBackground(Void... params) {
+                    JSONObject jsonEnvio;
+                    JSONObject jsonRetorno;
+                    ResponseAtendimentoRest responseAtendimentoRest = null;
+                    try {
+                        requestAtendimentoRest.setCodigoFuncao(ECodigoFuncao.CARGA_PACOTES);
+                        jsonEnvio = jsonParser.parseObjectToJson(requestAtendimentoRest);
+                        jsonRetorno = d2DRestClient.sendPost(jsonEnvio, ECodigoRequest.PROCESSAR);
+                        responseAtendimentoRest = jsonParser.parseJsonToObject(jsonRetorno, ResponseAtendimentoRest.class);
+                    } catch (Exception e) {
+                        responseAtendimentoRest = new ResponseAtendimentoRest();
+                        responseAtendimentoRest.setCodigoResponse(ECodigoResponse.ERROR);
+                        responseAtendimentoRest.setMessage(e.getMessage());
+                        return responseAtendimentoRest;
+                    }
+                    return responseAtendimentoRest;
+                }
+
+                @Override
+                protected void onPostExecute(ResponseAtendimentoRest resposta) {
+                    super.onPostExecute(resposta);
+                    if (resposta.getCodigoResponse().equals(ECodigoResponse.OK)) {
+                        try {
+                            entityManager.dropBasicTables();
+                            entityManager.createBasicTables();
+
+                            for (ProdutoTipo produtoTipo : resposta.getProdutosTipos()) {
+                                entityManager.save(produtoTipo);
+                            }
+
+                            for (Produto produto : resposta.getProdutos()) {
+                                entityManager.save(produto);
+                            }
+
+                            for (Usuario usuario : resposta.getUsuarios()) {
+                                entityManager.save(usuario);
+                            }
+
+                            UtilActivity.makeShortToast("Carga com sucesso", getApplicationContext());
+
+                        } catch (Exception e) {
+                            UtilActivity.makeShortToast("Falha na carga", getApplicationContext());
+                        }
+                    } else {
+                        UtilActivity.makeShortToast(resposta.getMessage(), getApplicationContext());
+                    }
+                }
+            };
+            taskCarga.execute();
+        } catch (Exception e) {
+            UtilActivity.makeShortToast("Falha na carga", getApplicationContext());
+        }
+    }
+
+    public void abrirPedido(View view) {
+        Intent intent = new Intent(this, PedidoActivity.class);
+        startActivity(intent);
     }
 
 
@@ -248,7 +289,7 @@ public class MainActivity extends Activity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Deseja Realmente Realizar Logoff?").setPositiveButton("Sim", dialogClickListener)
-                .setNegativeButton("N?o", dialogClickListener).show();
+                .setNegativeButton("Não", dialogClickListener).show();
     }
 
     @Override
@@ -287,6 +328,5 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        this.unregisterReceiver(this.mReceiver);
     }
 }

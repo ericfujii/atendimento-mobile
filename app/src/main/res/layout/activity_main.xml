@@ -7,7 +7,7 @@
         android:id="@+id/mainRL"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF">
+        android:background="#333">
 
         <ImageView
             android:src="@drawable/garcom"
@@ -31,6 +31,17 @@
                 android:layout_width="@dimen/size_s"
                 android:layout_height="@dimen/size_s"/>
 
+            <ImageView
+                android:id="@+id/cargaBT"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:onClick="executarCarga"
+                android:src="@drawable/ic_sinconizacao_branco"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="14dp"
+                android:layout_width="@dimen/size_s"
+                android:layout_height="@dimen/size_s"/>
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -39,7 +50,7 @@
 
             <RelativeLayout
                 android:id="@+id/botaoAgendamentosRL"
-                android:onClick="abrirAgendamentos"
+                android:onClick="abrirPedido"
                 style="@style/wrap_menu_home">
 
                 <ImageView
