@@ -1,9 +1,11 @@
-package ericfujii.com.br.atendimentomobile;
+package ericfujii.com.br.atendimentomobile.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import ericfujii.com.br.atendimentomobile.R;
 
 public class MainActivity extends ActionBarActivity {
 
