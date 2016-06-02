@@ -1,0 +1,897 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!--<item name="android:textColor">@color/cor_texto_primario</item>-->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="MyActionBar" parent="Base.Widget.AppCompat.Light.ActionBar">
+        <item name="background">@color/cor_app</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <style name="Drawer" parent="MatchMatch"></style>
+
+    <style name="MatchMatch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="MatchWrap">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WrapWrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WrapMatch">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="RelativeLayout" parent="MatchMatch"></style>
+
+    <style name="RelativeLayoutDialog" parent="WrapWrap">
+        <item name="android:layout_margin">@dimen/margin_l</item>
+        <item name="android:padding">@dimen/padding_l</item>
+    </style>
+
+    <style name="LinearLayout" parent="MatchWrap">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="LinearLayoutMatchMatch" parent="LinearLayout">
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="LinearLayoutOverlay" parent="LinearLayoutMatchMatch">
+        <item name="android:background">@color/cor_overlay</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:visibility">visible</item>
+    </style>
+
+    <style name="LinearLayoutDialog" parent="WrapWrap">
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">@dimen/padding_ml</item>
+    </style>
+
+    <style name="LinearLayoutDialogMatchWrap" parent="LinearLayoutDialog">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="ScrollView" parent="MatchMatch"></style>
+
+    <style name="Fragment" parent="MatchMatch"></style>
+
+    <style name="WrapSwitchItem" parent="RelativeLayout">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="SwitchItem" parent="WrapWrap">
+        <item name="android:layout_marginRight">@dimen/margin_l</item>
+    </style>
+
+    <style name="Separador">
+        <item name="android:layout_marginLeft">@dimen/margin_m</item>
+        <item name="android:layout_marginRight">@dimen/margin_m</item>
+        <item name="android:background">@color/cor_cinza_claro_3</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+    <!-- <View android:layout_below="@+id/" style="@style/Separador" /> -->
+
+    <style name="SeparadorEscuro" parent="Separador">
+        <item name="android:background">@color/cor_cinza</item>
+    </style>
+
+    <style name="SeparadorFull" parent="Separador">
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
+    <style name="SeparadorEscuroFull" parent="SeparadorEscuro">
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
+    <style name="RelativeLayoutPreloader" parent="MatchMatch"></style>
+
+    <style name="Preloader" parent="WrapWrap">
+        <item name="android:indeterminate">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="ProgressBar" parent="Base.Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">20dp</item>
+        <item name="android:indeterminate">false</item>
+        <item name="android:max">100</item>
+        <item name="android:progress">25</item>
+    </style>
+
+    <style name="TextoClaro" parent="WrapWrap">
+        <item name="android:textColor">@color/cor_app_claro_2</item>
+    </style>
+
+    <style name="TextoVermelho" parent="WrapWrap">
+        <item name="android:textColor">@color/cor_vermelho</item>
+    </style>
+
+    <style name="TextoRodape" parent="TextoClaro">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Login -->
+
+    <style name="RelativeLayoutWrapLogin" parent="MatchMatch">
+        <item name="android:paddingTop">@dimen/frame_login_padding_top_bottom</item>
+        <item name="android:paddingRight">@dimen/frame_login_padding_right_left</item>
+        <item name="android:paddingBottom">@dimen/frame_login_padding_top_bottom</item>
+        <item name="android:paddingLeft">@dimen/frame_login_padding_right_left</item>
+        <item name="android:background">@color/cor_app</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+
+    <style name="FrameLayoutImagemLogin" parent="MatchWrap">
+        <item name="android:paddingTop">@dimen/frame_login_logo_padding_top</item>
+        <item name="android:paddingBottom">@dimen/frame_login_logo_padding_bottom</item>
+    </style>
+
+    <style name="LinearLayoutLogin" parent="MatchWrap">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="ImagemLogin">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">@dimen/login_logo_app</item>
+        <item name="android:layout_height">@dimen/login_logo_app</item>
+    </style>
+
+    <style name="InputLogin" parent="MatchWrap">
+        <item name="android:layout_marginBottom">@dimen/margin_m</item>
+        <item name="android:paddingTop">@dimen/padding_m</item>
+        <item name="android:paddingBottom">@dimen/padding_m</item>
+        <item name="android:fontFamily">"sans-serif"</item>
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+        <item name="android:textColorHint">@color/cor_cinza_escuro</item>
+        <item name="android:background">@drawable/abc_textfield_search_material</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="BotaoLogin" parent="MatchWrap">
+        <item name="android:textColor">@color/cor_cinza_escuro</item>
+        <item name="android:background">@color/cor_cinza_claro_2</item>
+    </style>
+
+    <style name="TextoLogin" parent="TextoClaro">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <!-- Carregamento inicial -->
+
+    <style name="RelativeLayoutCarregamentoInicial" parent="RelativeLayoutWrapLogin">
+        <item name="android:background">@color/cor_app</item>
+    </style>
+
+    <style name="BoasVindasCarregamentoInicial" parent="BoasVindas">
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <!-- Main -->
+
+    <style name="RelativeLayoutMain" parent="MatchMatch">
+        <item name="android:background">@color/cor_app</item>
+    </style>
+
+    <style name="IcAtivaMenu">
+        <item name="android:layout_width">@dimen/size_s</item>
+        <item name="android:layout_height">@dimen/size_s</item>
+        <item name="android:layout_marginLeft">14dp</item>
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="IcAtivaMenuDireita" parent="IcAtivaMenu">
+        <item name="android:layout_marginLeft">0dp</item>
+        <item name="android:layout_marginRight">14dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="WrapHomeDestaque" parent="MatchWrap">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="ClockMainHoras" parent="MatchWrap">
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+        <item name="android:textSize">@dimen/font_uow</item>
+    </style>
+
+    <style name="ClockMainData" parent="ClockMainHoras">
+        <item name="android:layout_marginBottom">32dp</item>
+        <item name="android:textColor">@color/cor_app_claro_2</item>
+        <item name="android:textSize">@dimen/font_xl</item>
+    </style>
+
+    <style name="BoasVindas" parent="ClockMainData"></style>
+
+    <style name="WrapHomePrevisao" parent="MatchWrap">
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="IcHomePrevisao" parent="WrapWrap">
+        <item name="android:layout_width">@dimen/size_m</item>
+        <item name="android:layout_height">@dimen/size_m</item>
+        <item name="android:layout_marginLeft">@dimen/margin_s</item>
+        <item name="android:layout_marginRight">@dimen/margin_s</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="TextHomePrevisaoG" parent="WrapWrap">
+        <item name="android:layout_marginTop">@dimen/margin_xs</item>
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+        <item name="android:textSize">@dimen/font_l</item>
+    </style>
+
+    <style name="TextHomePrevisaoP" parent="TextHomePrevisaoG">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:textSize">@dimen/font_s</item>
+    </style>
+
+    <!-- ***** -->
+
+    <style name="IcHome">
+        <item name="android:layout_width">@dimen/size_m</item>
+        <item name="android:layout_height">@dimen/size_m</item>
+    </style>
+
+    <style name="IcMenu">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">@dimen/margin_m</item>
+        <item name="android:layout_width">@dimen/size_s</item>
+        <item name="android:layout_height">@dimen/size_s</item>
+    </style>
+
+    <style name="ImagemDialog" parent="MatchMatch">
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <!-- Menu -->
+
+    <style name="WrapperMenuHome">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginBottom">50dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WrapMenuHome">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/margin_s</item>
+        <item name="android:layout_marginRight">@dimen/margin_s</item>
+        <item name="android:padding">@dimen/padding_m</item>
+    </style>
+
+    <style name="WrapInfoUser" parent="MatchWrap">
+        <item name="android:padding">@dimen/padding_l</item>
+    </style>
+
+    <style name="IcUser">
+        <item name="android:clickable">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_width">@dimen/size_s</item>
+        <item name="android:layout_height">@dimen/size_s</item>
+    </style>
+
+    <style name="UserNome" parent="MenuItemNome">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxWidth">220dp</item>
+    </style>
+
+    <style name="ItemTabulacaoContadorNome" parent="WrapWrap">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">@color/cor_texto_escuro</item>
+        <item name="android:textSize">@dimen/font_s</item>
+    </style>
+
+    <style name="ItemTabulacaoContadorCounter" parent="ItemTabulacaoContadorNome">
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="MenuItem" parent="MatchWrap">
+        <item name="android:padding">@dimen/padding_l</item>
+    </style>
+
+    <style name="MenuItemCompacto" parent="MatchWrap">
+        <item name="android:padding">@dimen/padding_s</item>
+    </style>
+
+    <style name="MenuItemNome" parent="WrapWrap">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+        <item name="android:textSize">@dimen/font_s</item>
+    </style>
+
+    <style name="MenuItemCounter" parent="MenuItemNome">
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="MenuEsquerdo" parent="MatchMatch">
+        <item name="android:background">@color/cor_fundo_coluna</item>
+    </style>
+
+    <style name="MenuEsquerdoInverse" parent="MatchMatch">
+        <item name="android:background">@color/cor_fundo_coluna_inverse</item>
+    </style>
+
+    <style name="MenuEsquerdoOpcoes" parent="MatchWrap">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/cor_fundo_coluna</item>
+    </style>
+
+    <style name="WrapMenuEsquerdoOpcao" parent="WrapWrap">
+        <item name="android:layout_marginRight">1dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:padding">@dimen/padding_m</item>
+    </style>
+
+    <style name="WrapMenuEsquerdoSair" parent="WrapMenuEsquerdoOpcao">
+        <item name="android:layout_marginRight">0dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="IcOpcao" parent="IcMenu">
+        <item name="android:layout_marginRight">0dp</item>
+        <item name="android:layout_width">@dimen/ic_opcao</item>
+        <item name="android:layout_height">@dimen/ic_opcao</item>
+    </style>
+
+    <style name="IcSair" parent="IcOpcao">
+        <item name="android:layout_marginRight">@dimen/margin_s</item>
+        <item name="android:layout_centerHorizontal">false</item>
+        <item name="android:layout_centerVertical">false</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="MenuEsquerdoOpcaoItemNome" parent="MenuItemNome">
+        <item name="android:textSize">@dimen/font_xs</item>
+    </style>
+
+    <style name="MenuDireito" parent="MenuEsquerdo"></style>
+
+    <style name="WrapperTituloAccordion" parent="MatchWrap">
+        <item name="android:clickable">true</item>
+        <item name="android:background">@color/cor_fundo_coluna</item>
+    </style>
+
+    <style name="WrapTituloAccordion" parent="MenuItem">
+
+    </style>
+
+    <style name="TituloAccordion" parent="MenuItemNome"></style>
+
+    <style name="IcAccordion" parent="WrapWrap">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="ListViewItemChat" parent="MatchWrap"></style>
+
+    <style name="IcUserChat">
+        <item name="android:clickable">true</item>
+        <item name="android:layout_marginRight">@dimen/margin_m</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_width">@dimen/size_m</item>
+        <item name="android:layout_height">@dimen/size_m</item>
+    </style>
+
+    <style name="IcUserChatNome" parent="WrapWrap">
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxWidth">200dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+    </style>
+
+    <style name="IcUserChatStatus">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">@dimen/margin_m</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_width">@dimen/size_xxs</item>
+        <item name="android:layout_height">@dimen/size_xxs</item>
+    </style>
+
+    <!-- ***** -->
+
+    <style name="Form" parent="LinearLayout">
+        <item name="android:paddingTop">@dimen/padding_ml</item>
+    </style>
+
+    <style name="FormTitulo" parent="BoxTitulo"></style>
+
+    <style name="FormGroup" parent="MatchWrap">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">@dimen/margin_xl</item>
+    </style>
+
+    <style name="FormGroupDialog" parent="FormGroup">
+        <item name="android:layout_marginBottom">@dimen/margin_l</item>
+    </style>
+
+    <style name="FormLabel" parent="WrapWrap">
+        <item name="android:textColor">@color/cor_cinza_claro_2</item>
+        <item name="android:layout_marginLeft">@dimen/margin_ml</item>
+    </style>
+
+    <style name="Control" parent="MatchWrap">
+        <item name="android:textColor">@color/cor_texto_escuro</item>
+        <item name="android:textSize">@dimen/font_s</item>
+        <!--<item name="android:padding">@dimen/padding_m</item>-->
+
+        <!-- Configuracoes para igualar as dimensoes e a posicao do texto do EditText e do Spinner, por isso a insercao manual dos valores -->
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingRight">7dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingLeft">7dp</item>
+    </style>
+
+    <style name="ControlReadOnly" parent="Control">
+        <item name="android:clickable">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+    </style>
+
+    <style name="ControlWrapWrap" parent="Control">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ControlMultiLine" parent="Control">
+        <item name="android:gravity">top|left</item>
+        <item name="android:lines">2</item>
+        <item name="android:maxLength">100</item>
+        <item name="android:maxLines">10</item>
+        <item name="android:minLines">2</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <style name="ControlCheckBox" parent="Control"></style>
+
+    <style name="ControlCheckBoxSimples" parent="WrapWrap">
+        <item name="android:layout_marginRight">@dimen/margin_m</item>
+    </style>
+
+    <!-- Configuracoes para igualar as dimensoes e a posicao do texto do EditText e do Spinner, por isso a insercao manual dos valores -->
+    <style name="ControlSpinner" parent="MatchWrap">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginRight">4dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">4dp</item>
+    </style>
+
+    <style name="ControlSpinnerNotificacao" parent="ControlSpinner">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="SpinnerLista" parent="MatchWrap" />
+
+    <style name="SpinnerListaInverse" parent="MatchWrap" >
+        <item name="android:background">@color/cor_cinza_escuro</item>
+    </style>
+
+    <style name="SpinnerItem" parent="MatchWrap">
+        <item name="android:textColor">@color/cor_texto_escuro</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/font_s</item>
+        <!-- Configuracoes para igualar as dimensoes e a posicao do texto do EditText e do Spinner, por isso a insercao manual dos valores -->
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="SpinnerItemInverse" parent="MatchWrap">
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/font_s</item>
+        <!-- Configuracoes para igualar as dimensoes e a posicao do texto do EditText e do Spinner, por isso a insercao manual dos valores -->
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="FormLinha" parent="WrapWrap">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginRight">@dimen/margin_ml</item>
+        <item name="android:layout_marginBottom">@dimen/margin_xs</item>
+        <item name="android:layout_marginLeft">@dimen/margin_ml</item>
+    </style>
+
+    <style name="WrapFormListView" parent="MatchWrap">
+        <item name="android:layout_marginBottom">@dimen/margin_xl</item>
+    </style>
+
+    <style name="FormListView" parent="MatchWrap"></style>
+
+    <style name="FormListViewItem" parent="MatchWrap">
+        <item name="android:padding">@dimen/padding_ml</item>
+    </style>
+
+    <style name="FormListViewItemLinha" parent="MatchWrap"></style>
+
+    <style name="WrapFormBotao" parent="FormGroup">
+        <item name="android:layout_marginRight">@dimen/margin_ml</item>
+        <item name="android:layout_marginLeft">@dimen/margin_ml</item>
+    </style>
+
+    <style name="WrapFormBotaoDialog" parent="WrapFormBotao">
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="Botao" parent="WrapWrap">
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+        <item name="android:background">@color/cor_app</item>
+        <item name="android:paddingTop">@dimen/padding_s</item>
+        <item name="android:paddingRight">@dimen/padding_m</item>
+        <item name="android:paddingBottom">@dimen/padding_s</item>
+        <item name="android:paddingLeft">@dimen/padding_m</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
+    <style name="BotaoMapa">
+        <item name="android:layout_marginRight">@dimen/margin_ml</item>
+        <item name="android:layout_width">@dimen/size_l</item>
+        <item name="android:layout_height">@dimen/size_l</item>
+    </style>
+
+    <!-- Lista -->
+
+    <style name="ListView" parent="MatchMatch"></style>
+
+    <style name="ListViewMatchWrapGM" parent="MatchWrap">
+        <item name="android:background">@color/cor_overlay_escuro</item>
+    </style>
+
+    <style name="ListViewSemEfeitos" parent="ListView">
+        <item name="android:fadeScrollbars">false</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:scrollbars">vertical</item>
+    </style>
+
+    <style name="ListViewOpaco" parent="ListView">
+        <item name="android:background">@color/cor_overlay_escuro</item>
+    </style>
+
+    <style name="ListViewItem" parent="MatchWrap">
+        <item name="android:padding">@dimen/padding_m</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="IcListViewItem" parent="WrapWrap">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_width">@dimen/size_xs</item>
+        <item name="android:layout_height">@dimen/size_xs</item>
+    </style>
+
+    <style name="IcListViewItemPrevisao" parent="IcListViewItem">
+        <item name="android:layout_marginLeft">@dimen/margin_l</item>
+        <item name="android:layout_alignParentBottom">false</item>
+        <item name="android:layout_width">@dimen/size_m</item>
+        <item name="android:layout_height">@dimen/size_m</item>
+    </style>
+
+    <style name="IcListViewItem2" parent="ListViewItemData">
+        <item name="android:layout_width">@dimen/size_s</item>
+        <item name="android:layout_height">@dimen/size_s</item>
+    </style>
+
+    <style name="ListViewItemNome" parent="WrapWrap">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/cor_cinza_escuro</item>
+        <item name="android:maxWidth">180dp</item>
+    </style>
+
+    <style name="ListViewItemNomeInverse" parent="ListViewItemNome">
+        <item name="android:textColor">@color/cor_inverso</item>
+    </style>
+
+    <style name="ListViewItemNomeSemLimite" parent="WrapWrap">
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@color/cor_cinza_escuro</item>
+    </style>
+
+    <style name="ListViewItemNomeCidadePrevisao" parent="WrapWrap">
+        <item name="android:layout_marginBottom">@dimen/margin_xs</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/cor_cinza_escuro</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ListViewItemNomeCidadeStatusPrevisao" parent="ListViewItemNomeCidadePrevisao">
+        <item name="android:layout_marginLeft">@dimen/margin_s</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/cor_cinza_claro_2</item>
+    </style>
+
+    <style name="ListViewItemNomeFull" parent="WrapWrap">
+        <item name="android:textColor">@color/cor_cinza_escuro</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ListViewItemData" parent="WrapWrap">
+        <item name="android:layout_alignParentRight">true</item>
+        <!--<item name="android:layout_marginBottom">@dimen/margin_s</item>-->
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ListViewItemHoras" parent="ListViewItemData"></style>
+
+    <style name="ListViewItemDataHoras" parent="ListViewItemData"></style>
+
+    <style name="ListViewItemOutro" parent="ListViewItemData"></style>
+
+    <style name="ListViewItemOutro2" parent="ListViewItemData">
+        <item name="android:layout_alignParentRight">false</item>
+    </style>
+
+    <style name="ListViewItemDescricao" parent="WrapWrap">
+        <!--<item name="android:layout_marginBottom">@dimen/margin_s</item>-->
+        <item name="android:textSize">@dimen/font_xs</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxWidth">260dp</item>
+    </style>
+
+    <style name="ListViewItemDescricaoPrevisao" parent="ListViewItemDescricao">
+        <item name="android:textSize">@dimen/font_l</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="ListViewItemTemperaturaPrevisao" parent="ListViewItemDescricaoPrevisao">
+        <item name="android:layout_marginLeft">@dimen/margin_l</item>
+    </style>
+
+    <style name="ListViewItemInfo" parent="WrapWrap">
+        <!--<item name="android:layout_marginBottom">@dimen/margin_s</item>-->
+        <item name="android:textSize">@dimen/font_xs</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="ListViewItemNomeMain" parent="ListViewItemNome">
+        <item name="android:textColor">@color/cor_inverso</item>
+    </style>
+
+    <style name="ListViewItemHorasMain" parent="ListViewItemData">
+        <item name="android:textColor">@color/cor_inverso</item>
+    </style>
+
+    <style name="ListViewItemDescricaoMain" parent="ListViewItemDescricao">
+        <item name="android:textColor">@color/cor_cinza_claro_2</item>
+    </style>
+
+    <style name="ListViewProgressBar">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:layout_width">@dimen/size_xs</item>
+        <item name="android:layout_height">@dimen/size_xs</item>
+    </style>
+
+    <style name="ListViewItemNomeFullInverso" parent="ListViewItemNomeFull">
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+    </style>
+
+    <style name="ListViewItemDescricaoInverso" parent="ListViewItemDescricao">
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+    </style>
+
+    <style name="VazioInfo" parent="MatchMatch">
+        <item name="android:padding">@dimen/padding_l</item>
+        <item name="android:gravity">center</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textSize">@dimen/font_xl</item>
+    </style>
+
+    <!-- Aba -->
+
+    <style name="AbasLinearLayout" parent="MatchMatch">
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="Abas" parent="MatchWrap">
+        <item name="android:background">@color/cor_app</item>
+    </style>
+
+    <style name="AbasViewPager" parent="MatchMatch"></style>
+
+    <!-- Graficos -->
+
+    <style name="Chart" parent="MatchMatch"></style>
+
+    <!-- Notificacao -->
+
+    <style name="NotificacaoBox" parent="Box">
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
+    <style name="NotificacaoLabel" parent="WrapWrap">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="NotificacaoCheckbox" parent="WrapWrap">
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="WrapNotificacaoTitulo" parent="MatchWrap">
+        <item name="android:layout_marginBottom">@dimen/margin_ml</item>
+        <item name="android:layout_marginLeft">@dimen/margin_ml</item>
+    </style>
+
+    <style name="NotificacaoSwitch" parent="WrapWrap">
+        <item name="android:paddingRight">@dimen/padding_ml</item>
+        <item name="android:paddingLeft">@dimen/padding_ml</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="NotificacaoTitulo" parent="BoxTitulo">
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
+    </style>
+
+    <style name="NotificacaoOpcao" parent="MatchWrap">
+        <item name="android:layout_margin">@dimen/margin_ml</item>
+    </style>
+
+    <!-- ***** -->
+
+    <style name="Box">
+        <item name="android:layout_marginBottom">@dimen/margin_ml</item>
+        <item name="android:background">@color/cor_fundo</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">@dimen/padding_ml</item>
+        <item name="android:paddingBottom">@dimen/padding_ml</item>
+    </style>
+
+    <style name="BoxTitulo">
+        <item name="android:textColor">@color/cor_app</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">@dimen/margin_ml</item>
+        <item name="android:layout_marginBottom">@dimen/margin_ml</item>
+        <item name="android:layout_marginLeft">@dimen/margin_ml</item>
+    </style>
+
+    <style name="WrapLinha" parent="MatchWrap"></style>
+
+    <style name="Linha" parent="MatchWrap">
+        <item name="android:layout_marginRight">@dimen/margin_ml</item>
+        <item name="android:layout_marginLeft">@dimen/margin_ml</item>
+    </style>
+
+    <style name="WrapLinhaSolta" parent="MatchWrap">
+        <item name="android:paddingTop">@dimen/padding_ml</item>
+        <item name="android:paddingBottom">@dimen/padding_ml</item>
+    </style>
+
+    <style name="WrapLinhaDestaque">
+        <item name="android:padding">@dimen/padding_ml</item>
+        <item name="android:background">@color/cor_cinza</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="LinhaDestaque" parent="WrapWrap">
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+    </style>
+
+    <style name="LinhaDestaqueInfo" parent="LinhaDestaque">
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="Label" parent="WrapWrap"></style>
+
+    <style name="LabelCheckBoxSimples" parent="WrapWrap">
+        <item name="android:textColor">@color/cor_texto_escuro</item>
+    </style>
+
+    <style name="DescricaoCheckBoxSimples" parent="WrapWrap">
+        <item name="android:textColor">@color/cor_cinza_claro_2</item>
+    </style>
+
+    <style name="WrapLabelCheckBoxSimples" parent="MatchWrap">
+        <item name="android:layout_marginTop">@dimen/margin_sm</item>
+        <item name="android:layout_marginBottom">@dimen/margin_sm</item>
+    </style>
+
+    <style name="Dados" parent="WrapWrap">
+        <item name="android:gravity">end</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:maxWidth">220dp</item>
+    </style>
+
+    <style name="Dados2" parent="Dados">
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+    </style>
+
+    <style name="Overlay" parent="MatchMatch">
+        <item name="android:clickable">true</item>
+        <item name="android:background">@color/cor_overlay</item>
+    </style>
+
+    <style name="OverlaySincronizar" parent="MatchWrap">
+        <item name="android:padding">@dimen/padding_m</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">@color/cor_overlay_escuro</item>
+    </style>
+
+    <style name="IcSincronizar" parent="IcMenu">
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">@dimen/margin_m</item>
+        <item name="android:layout_width">@dimen/size_m</item>
+        <item name="android:layout_height">@dimen/size_m</item>
+    </style>
+
+    <style name="InfoSincronizar" parent="MenuItemNome">
+        <item name="android:maxWidth">120dp</item>
+        <item name="android:textColor">@color/cor_texto_inverso</item>
+    </style>
+
+    <style name="BotaoSincronizar" parent="Botao">
+        <item name="android:padding">@dimen/padding_m</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="OverlayConexao" parent="OverlaySincronizar"></style>
+
+    <style name="OverlayMenu" parent="OverlaySincronizar">
+        <item name="android:paddingTop">@dimen/padding_s</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingBottom">@dimen/padding_s</item>
+        <item name="android:paddingLeft">0dp</item>
+    </style>
+
+    <style name="IcConexao" parent="IcSincronizar"></style>
+
+    <style name="InfoConexao" parent="InfoSincronizar"></style>
+
+    <style name="BotaoConexao" parent="BotaoSincronizar"></style>
+
+</resources>

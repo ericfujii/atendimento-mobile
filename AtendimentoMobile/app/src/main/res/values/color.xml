@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <color name="cor_app">#33CCFF</color>
+    <color name="cor_app_claro_2">#FEB88F</color>
+    <color name="cor_app_claro">#FD7E35</color>
+    <color name="cor_app_escuro">#B24201</color>
+
+    <color name="cor_padrao">@color/cor_app</color>
+
+    <color name="cor_overlay">#70FFFFFF</color>
+    <color name="cor_overlay_escuro">#95000000</color>
+
+    <color name="cor_branco">#FFFFFF</color>
+    <color name="cor_cinza_claro_3">#E5E5E5</color>
+    <color name="cor_cinza_claro_2">#A1A0A2</color>
+    <color name="cor_cinza_claro">#79787A</color>
+    <color name="cor_cinza">#403F41</color>
+    <color name="cor_cinza_escuro">#201F20</color>
+
+    <color name="cor_azul">#0099CC</color>
+    <color name="cor_roxo">#9933CC</color>
+    <color name="cor_verde">#669900</color>
+    <color name="cor_laranja">@color/cor_app</color>
+    <color name="cor_vermelho">#CC0000</color>
+
+    <color name="cor_texto_primario">@color/cor_cinza</color>
+    <color name="cor_texto_secundario_2">@color/cor_cinza_claro_2</color>
+    <color name="cor_texto_secundario">@color/cor_cinza_claro</color>
+    <color name="cor_texto_inverso">@color/cor_branco</color>
+    <color name="cor_texto_escuro">@color/cor_cinza_escuro</color>
+
+    <color name="cor_destaque">@color/cor_texto_inverso</color>
+    <color name="cor_ok">@color/cor_verde</color>
+    <color name="cor_erro">@color/cor_vermelho</color>
+    <color name="cor_info">@color/cor_azul</color>
+    <color name="cor_click">@color/cor_cinza_claro_2</color>
+    <color name="cor_inverso">@color/cor_branco</color>
+
+    <color name="cor_fundo">@color/cor_branco</color>
+    <color name="cor_fundo_coluna">@color/cor_cinza_escuro</color>
+    <color name="cor_fundo_coluna_inverse">@color/cor_cinza_claro_3</color>
+
+
+    <color name="cor_separador">@color/cor_cinza_claro_2</color>
+    <color name="cor_separador_escuro">@color/cor_cinza</color>
+
+</resources>

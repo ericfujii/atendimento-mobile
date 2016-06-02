@@ -1,0 +1,72 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/RelativeLayoutWrapLogin"
+    tools:context=".activities.LoginActivity">
+
+    <FrameLayout
+        android:id="@+id/logoFL"
+        style="@style/FrameLayoutImagemLogin">
+
+        <ImageView
+            android:id="@+id/logoLogin"
+            style="@style/ImagemLogin"
+            android:src="@drawable/onigiri" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/camposLoginLL"
+        style="@style/LinearLayoutLogin"
+        android:layout_below="@+id/logoFL"
+        android:visibility="visible">
+
+        <EditText
+            android:id="@+id/loginET"
+            style="@style/InputLogin"
+            android:hint="Login"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/senhaET"
+            style="@style/InputLogin"
+            android:hint="Senha"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/loginBT"
+            style="@style/BotaoLogin"
+            android:onClick="logar"
+            android:text="@string/entrar"
+            android:textAllCaps="true" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/camposAplicacaoLL"
+        style="@style/LinearLayoutLogin"
+        android:layout_below="@+id/logoFL"
+        android:visibility="gone">
+
+        <Spinner
+            android:id="@+id/spinnerAplicacao"
+            style="@style/InputLogin" />
+
+        <Button
+            android:id="@+id/loginAplicacaoBT"
+            style="@style/BotaoLogin"
+            android:onClick="logarAplicacao"
+            android:text="@string/entrar"
+            android:textAllCaps="true" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/preLoaderLoginRL"
+        style="@style/RelativeLayoutPreloader"
+        android:visibility="gone">
+
+        <ProgressBar style="@style/Preloader" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
