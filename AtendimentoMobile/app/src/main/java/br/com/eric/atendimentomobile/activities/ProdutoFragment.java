@@ -1,10 +1,12 @@
 package br.com.eric.atendimentomobile.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -18,7 +20,7 @@ import br.com.eric.atendimentomobile.entidade.ProdutoTipo;
 import br.com.eric.atendimentomobile.utils.EntityManager;
 
 
-public class ProdutoFragment extends Fragment {
+public class ProdutoFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private RelativeLayout relativeLayout;
     private ListView listView;
@@ -58,6 +60,7 @@ public class ProdutoFragment extends Fragment {
         ProdutoListAdapter adapter = new ProdutoListAdapter(filasActivity, produtos);
         listView = (ListView) relativeLayout.findViewById(R.id.listView);
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(this);
     }
 
     private void criarCamposEntrada() {
@@ -67,6 +70,13 @@ public class ProdutoFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         filasActivity = (FilasActivity) getActivity();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(filasActivity, FilaProdutoActivity.class);
+        intent.putExtra("idProduto", produtos.get(position).getId());
+        startActivity(intent);
     }
 
     public void setProdutoTipo(ProdutoTipo produtoTipo) {

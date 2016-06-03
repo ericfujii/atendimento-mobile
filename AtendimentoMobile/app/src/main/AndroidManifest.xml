@@ -47,14 +47,17 @@
         </activity>
         <activity
             android:name=".activities.FilasActivity"
-            android:label="Filas">
+            android:label="Filas"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="FILAS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.FilaProdutoActivity"></activity>
+        <activity android:name=".activities.FilaProdutoActivity"
+            android:screenOrientation="portrait"
+            android:label="Fila"/>
     </application>
 
 </manifest>

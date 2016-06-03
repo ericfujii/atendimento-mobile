@@ -19,14 +19,16 @@
         android:id="@+id/quantidadeMesaTV"
         style="@style/WrapWrap"
         android:layout_toLeftOf="@+id/quantidadeTotalTV"
-        android:text="Mesa: 1" />
+        android:text="Mesa: 1"
+        android:layout_marginRight="10dp"/>
 
     <TextView
         android:id="@+id/quantidadeViagemTV"
         android:layout_below="@+id/quantidadeMesaTV"
         style="@style/WrapWrap"
         android:layout_toLeftOf="@+id/quantidadeTotalTV"
-        android:text="Viagem: 1" />
+        android:text="Viagem: 1"
+        android:layout_marginRight="10dp" />
 
     <TextView
         android:id="@+id/quantidadeTotalTV"

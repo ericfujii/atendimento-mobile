@@ -8,14 +8,7 @@ public enum EMobileRecursoCodigo {
     VERIFICAR_PACOTE("verificarPacote"),
     LOGAR("logar"),
     SALVAR_PEDIDO("salvarPedido"),
-    RECUPERAR_RELATORIO_LOCALIZACAO("recuperarRelatorioLocalizacao"),
-    RECUPERAR_CONFIGURACAO_LOCALIZACAO("recuperarConfiguracaoLocalizacao"),
-    SALVAR_RUA("salvarRua"),
-    PESQUISAR_MAILING_CONSOLIDADO("pesquisarMailingConsolidado"),
-    BAIXAR_MAILING_CONSOLIDADO("baixarMailingConsolidado"),
-    RECUPERAR_CONTADORES("recuperarContadores"),
-    PESQUISAR_PROXY("proxy"),
-    RECUPERAR_AGENTE_AUTORIZADO("recuperarAgenteAutorizado");
+    RECUPERAR_FILA("recuperarFila");
 
     private String codigo;
 

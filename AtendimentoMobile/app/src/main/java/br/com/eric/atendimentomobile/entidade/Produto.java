@@ -27,7 +27,12 @@ public class Produto {
 	
 	@XmlElement(name = "situacao")
 	private ESituacao situacao = ESituacao.ATIVO;
-	
+
+	public Produto(){}
+
+	public Produto(Integer id){
+		this.id = id;
+	}
 
 	public Integer getId() {
 		return id;
