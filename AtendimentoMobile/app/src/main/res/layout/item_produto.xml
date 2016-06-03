@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListViewItem">
+
+    <TextView
+        android:id="@+id/nomeTV"
+        style="@style/ListViewItemNome"
+        android:layout_centerVertical="true"
+        android:text="Yakissoba" />
+
+</RelativeLayout>

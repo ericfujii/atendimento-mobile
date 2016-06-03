@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MenuItem">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:src="@drawable/ic_menu_venda"
+        style="@style/IcMenu"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:text="Venda"
+        android:layout_toRightOf="@+id/icon"
+        style="@style/MenuItemNome"/>
+
+    <TextView
+        android:id="@+id/counter"
+        android:text="999"
+        style="@style/MenuItemCounter"/>
+
+</RelativeLayout>

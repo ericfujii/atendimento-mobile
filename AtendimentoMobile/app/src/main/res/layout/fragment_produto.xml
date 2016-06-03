@@ -1,0 +1,10 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/RelativeLayout"
+    tools:context=".activities.PedidoFragment" >
+
+    <ListView
+        android:id="@+id/listView"
+        style="@style/ListView" />
+
+</RelativeLayout>

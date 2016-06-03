@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ListViewItem"
+    tools:context=".activities.FilaProdutoActivity">
+
+    <TextView
+        android:id="@+id/mesaClienteTV"
+        style="@style/ListViewItemNome"
+        android:text="Mesa/Cliente: 35" />
+
+    <TextView
+        android:id="@+id/situacaoTV"
+        style="@style/ListViewItemDescricao"
+        android:layout_below="@+id/mesaClienteTV"
+        android:text="AVISADO" />
+
+    <TextView
+        android:id="@+id/quantidadeMesaTV"
+        style="@style/WrapWrap"
+        android:layout_toLeftOf="@+id/quantidadeTotalTV"
+        android:text="Mesa: 1" />
+
+    <TextView
+        android:id="@+id/quantidadeViagemTV"
+        android:layout_below="@+id/quantidadeMesaTV"
+        style="@style/WrapWrap"
+        android:layout_toLeftOf="@+id/quantidadeTotalTV"
+        android:text="Viagem: 1" />
+
+    <TextView
+        android:id="@+id/quantidadeTotalTV"
+        android:layout_below="@+id/quantidadeMesaTV"
+        style="@style/ListViewItemHoras"
+        android:layout_centerVertical="true"
+        android:text="Total: 2" />
+</RelativeLayout>

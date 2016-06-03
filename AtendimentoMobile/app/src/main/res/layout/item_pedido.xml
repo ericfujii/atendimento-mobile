@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListViewItem">
+
+    <TextView
+        android:id="@+id/nomeTV"
+        style="@style/ListViewItemNome"
+        android:layout_centerVertical="true"
+        android:text="Yakissoba" />
+
+    <TextView
+        android:id="@+id/mesaTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mesa"
+        android:layout_alignStart="@+id/quantidadeNP"/>
+
+    <NumberPicker
+        android:id="@+id/quantidadeNP"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/mesaTV"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/quantidadeViagemNP"/>
+
+    <TextView
+        android:id="@+id/viagemTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Viagem"
+        android:layout_alignStart="@+id/quantidadeViagemNP"/>
+
+    <NumberPicker
+        android:id="@+id/quantidadeViagemNP"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/viagemTV"/>
+
+    <TextView
+        android:id="@+id/obsTV"
+        android:text="Observações :"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/quantidadeViagemNP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/obsET"
+        android:layout_alignBaseline="@+id/obsTV"
+        android:layout_toRightOf="@+id/obsTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>
