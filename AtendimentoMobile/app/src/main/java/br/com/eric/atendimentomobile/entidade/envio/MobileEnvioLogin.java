@@ -4,9 +4,6 @@ import br.com.eric.atendimentomobile.entidade.AtendimentoMobile;
 import br.com.eric.atendimentomobile.entidade.EMobileRecursoCodigo;
 import br.com.eric.atendimentomobile.utils.annotations.XmlElement;
 
-/**
- * Created by desenvolvimento on 17/03/16.
- */
 public class MobileEnvioLogin extends MobileEnvio {
 
     @XmlElement(name = "login")

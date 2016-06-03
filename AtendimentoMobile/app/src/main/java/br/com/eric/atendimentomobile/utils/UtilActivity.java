@@ -3,7 +3,6 @@ package br.com.eric.atendimentomobile.utils;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +18,6 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.Vibrator;
 import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Base64;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,11 +38,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
 
-import br.com.eric.atendimentomobile.MainActivity;
 import br.com.eric.atendimentomobile.R;
+import br.com.eric.atendimentomobile.activities.MainActivity;
 import br.com.eric.atendimentomobile.entidade.ItemComboAdapter;
 import br.com.eric.atendimentomobile.entidade.SistemaConstantes;
 

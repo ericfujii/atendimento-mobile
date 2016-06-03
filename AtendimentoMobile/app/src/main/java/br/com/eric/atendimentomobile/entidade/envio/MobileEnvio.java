@@ -5,9 +5,6 @@ import br.com.eric.atendimentomobile.entidade.EMobileRecursoCodigo;
 import br.com.eric.atendimentomobile.utils.annotations.XmlElement;
 import br.com.eric.atendimentomobile.utils.annotations.XmlTransient;
 
-/**
- * Created by marceloeugenio on 3/16/16.
- */
 public abstract class MobileEnvio implements MobileEnviavel {
 
     @XmlElement(name = "id_usuario")

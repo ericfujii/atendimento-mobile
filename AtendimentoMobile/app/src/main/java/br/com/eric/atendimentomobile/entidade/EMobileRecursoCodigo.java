@@ -5,16 +5,9 @@ package br.com.eric.atendimentomobile.entidade;
  */
 public enum EMobileRecursoCodigo {
 
-    SALVAR_TABULACAO("salvarTabulacao"),
-    SALVAR_LOCALIZACAO("salvarLocalizacao"),
-    PESQUISAR_MAILING("pesquisarRuas"),
-    VINCULAR_MAILING("vincularRuas"),
-    RECUPERAR_MAILING("recuperarRuasSelecionadas"),
-    RECUPERAR_AGENDAMENTO("recuperarAgendamento"),
     VERIFICAR_PACOTE("verificarPacote"),
-    INICIAR_CONTADOR("iniciarContador"),
-    RECUPERAR_RELATORIO("recuperarRelatorio"),
     LOGAR("logar"),
+    SALVAR_PEDIDO("salvarPedido"),
     RECUPERAR_RELATORIO_LOCALIZACAO("recuperarRelatorioLocalizacao"),
     RECUPERAR_CONFIGURACAO_LOCALIZACAO("recuperarConfiguracaoLocalizacao"),
     SALVAR_RUA("salvarRua"),

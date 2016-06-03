@@ -4,9 +4,6 @@ import java.util.Map;
 
 import br.com.eric.atendimentomobile.utils.annotations.XmlElement;
 
-/**
- * Created by marceloeugenio on 3/16/16.
- */
 public abstract class MobileRetorno implements MobileRetornavel {
 
     @XmlElement(name = "mensagem")

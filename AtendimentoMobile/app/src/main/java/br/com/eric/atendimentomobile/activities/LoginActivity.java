@@ -21,7 +21,6 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import br.com.eric.atendimentomobile.MainActivity;
 import br.com.eric.atendimentomobile.R;
 import br.com.eric.atendimentomobile.entidade.AtendimentoMobile;
 import br.com.eric.atendimentomobile.entidade.ED2DCodigoResponse;
@@ -36,8 +35,6 @@ public class LoginActivity extends Activity {
 
     private EditText loginET;
     private EditText senhaET;
-    private Spinner spinnerAplicacao;
-    private Button loginBT;
     private FrameLayout logoFL;
     private LinearLayout camposLogin;
     private LinearLayout camposAplicacao;
@@ -49,7 +46,6 @@ public class LoginActivity extends Activity {
     private AtendimentoMobile atendimentoMobile;
 
     public AsyncTask<Void, Void, MobileRetorno> taskLogar;
-    private Integer idAgendamento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -172,8 +168,6 @@ public class LoginActivity extends Activity {
     public void carregarCamposEntrada() {
         loginET = (EditText) findViewById(R.id.loginET);
         senhaET = (EditText) findViewById(R.id.senhaET);
-        spinnerAplicacao = (Spinner) findViewById(R.id.spinnerAplicacao);
-        loginBT = (Button) findViewById(R.id.loginBT);
         preLoaderLoginRL = (RelativeLayout) findViewById(R.id.preLoaderLoginRL);
         camposLogin = (LinearLayout) findViewById(R.id.camposLoginLL);
         camposAplicacao = (LinearLayout) findViewById(R.id.camposAplicacaoLL);
@@ -221,12 +215,13 @@ public class LoginActivity extends Activity {
                     if (resposta.getCodigoRetorno() != null && resposta.getCodigoRetorno().equals(ED2DCodigoResponse.OK.toString())) {
                         try {
                             MobileRetornoLogin mobileRetornoLogin = (MobileRetornoLogin) resposta;
-
+                            atendimentoMobile.setIdUsuario(mobileRetornoLogin.getIdUsuario());
                             Intent destino = new Intent(getApplicationContext(), MainActivity.class);
 
                             startActivity(destino);
                             LoginActivity.this.finish();
                         } catch (Exception e) {
+                            e.printStackTrace();
                             camposLogin.setVisibility(View.VISIBLE);
                             preLoaderLoginRL.setVisibility(View.GONE);
                             UtilActivity.makeShortToast("O login e/a senha que você digitou não coincidem.", getApplicationContext());
