@@ -154,7 +154,6 @@ public class MensagemUsuarioActivity extends ActionBarActivity {
 
     @Override
     protected void onPause() {
-        this.unregisterReceiver(mReceiver);
         super.onPause();
     }
 
