@@ -485,6 +485,13 @@ public class MainActivity extends Activity {
                         "",
                         new Intent("FILAS")));
 
+        navDrawerItems.add(
+                new MenuLateralItem(
+                        "Chat",
+                        R.drawable.ic_textsms_white_48dp,
+                        "",
+                        new Intent("CHAT")));
+
         MenuLateralListAdapter menuLateralListAdapter = new MenuLateralListAdapter(getApplicationContext(), navDrawerItems);
         menuLateralListAdapter.notifyDataSetChanged();
         mDrawerList.setAdapter(menuLateralListAdapter);

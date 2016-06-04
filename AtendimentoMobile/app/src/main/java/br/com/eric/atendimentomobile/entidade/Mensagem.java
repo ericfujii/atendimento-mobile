@@ -1,41 +1,47 @@
 package br.com.eric.atendimentomobile.entidade;
 
 
-import java.util.Date;
-import java.util.List;
+import java.util.Calendar;
 
+import br.com.eric.atendimentomobile.utils.annotations.Column;
 import br.com.eric.atendimentomobile.utils.annotations.Id;
 import br.com.eric.atendimentomobile.utils.annotations.JoinColumn;
 import br.com.eric.atendimentomobile.utils.annotations.Table;
+import br.com.eric.atendimentomobile.utils.annotations.XmlElement;
+import br.com.eric.atendimentomobile.utils.annotations.XmlTransient;
+
 
 @Table(name="mensagem")
 public class Mensagem{
-
-
 	@Id
+	@XmlElement(name = "id")
 	private Integer id;
 
+	@XmlElement(name = "mensagem")
 	private String mensagem;
 
-	private Date dataMensagem;
+	@XmlElement(name = "data_mensagem")
+	@Column(name = "data_mensagem")
+	private Calendar dataMensagem;
 
 	@JoinColumn(name = "_remetente")
+	@XmlElement(name = "remetente")
 	private Usuario remetente;
 
 	@JoinColumn(name="_destinatario")
+	@XmlElement(name = "destinatario")
 	private Usuario destinatario;
 
-	/* *************************************************************** */
-	public Mensagem(){
+	@XmlTransient
+	private EBoolean visualizada = EBoolean.FALSE;
 
+	public Mensagem(){
 	}
 
 	public Mensagem(Integer id){
 		this.id = id;
 	}
-	
-	
-	/* *************************************************************** */
+
 	public Integer getId() {
 		return id;
 	}
@@ -52,11 +58,11 @@ public class Mensagem{
 		this.mensagem = mensagem;
 	}
 
-	public Date getDataMensagem() {
+	public Calendar getDataMensagem() {
 		return dataMensagem;
 	}
 
-	public void setDataMensagem(Date dataMensagem) {
+	public void setDataMensagem(Calendar dataMensagem) {
 		this.dataMensagem = dataMensagem;
 	}
 
@@ -74,5 +80,13 @@ public class Mensagem{
 
 	public void setDestinatario(Usuario destinatario) {
 		this.destinatario = destinatario;
+	}
+
+	public EBoolean getVisualizada() {
+		return visualizada;
+	}
+
+	public void setVisualizada(EBoolean visualizada) {
+		this.visualizada = visualizada;
 	}
 }

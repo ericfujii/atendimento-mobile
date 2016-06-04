@@ -23,12 +23,14 @@ import java.util.Calendar;
 
 import br.com.eric.atendimentomobile.R;
 import br.com.eric.atendimentomobile.entidade.AtendimentoMobile;
+import br.com.eric.atendimentomobile.entidade.ConfiguracaoSistema;
 import br.com.eric.atendimentomobile.entidade.ED2DCodigoResponse;
 import br.com.eric.atendimentomobile.entidade.envio.MobileEnvioLogin;
 import br.com.eric.atendimentomobile.entidade.retorno.MobileRetorno;
 import br.com.eric.atendimentomobile.entidade.retorno.MobileRetornoLogin;
 import br.com.eric.atendimentomobile.servico.MobileEnvioServico;
 import br.com.eric.atendimentomobile.utils.EntityManager;
+import br.com.eric.atendimentomobile.utils.TimerService;
 import br.com.eric.atendimentomobile.utils.UtilActivity;
 
 public class LoginActivity extends Activity {
@@ -217,7 +219,22 @@ public class LoginActivity extends Activity {
                             MobileRetornoLogin mobileRetornoLogin = (MobileRetornoLogin) resposta;
                             atendimentoMobile.setIdUsuario(mobileRetornoLogin.getIdUsuario());
                             Intent destino = new Intent(getApplicationContext(), MainActivity.class);
+                            ConfiguracaoSistema usuario = null;
+                            try {
+                                usuario = entityManager.getById(ConfiguracaoSistema.class, "usuario");
+                            } catch (Exception e) {
+                                usuario = new ConfiguracaoSistema();
+                                usuario.setDescricao("usuario");
+                                usuario.setValor(mobileRetornoLogin.getIdUsuario().toString());
+                                entityManager.save(usuario);
+                            }
 
+                            if (!usuario.getValor().equals(mobileRetornoLogin.getIdUsuario().toString())) {
+                                entityManager.executeNativeQuery("DELETE FROM mensagem");
+                                usuario.setValor(mobileRetornoLogin.getIdUsuario().toString());
+                                entityManager.atualizar(usuario);
+                            }
+                            LoginActivity.this.startService(new Intent(LoginActivity.this, TimerService.class));
                             startActivity(destino);
                             LoginActivity.this.finish();
                         } catch (Exception e) {

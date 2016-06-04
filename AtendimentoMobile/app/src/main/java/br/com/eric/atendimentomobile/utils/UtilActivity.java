@@ -3,6 +3,7 @@ package br.com.eric.atendimentomobile.utils;
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -312,7 +313,7 @@ public class UtilActivity {
         return imagemFinal;
     }
 
-    public static void makeNotification(Context context, Integer notificacaoCodigo, int logo, String titulo, String texto, String aviso, Boolean permanente) {
+    public static void makeNotification(Context context, String tag, Integer notificacaoCodigo, int logo, String titulo, String texto, String aviso, Intent intent, Boolean permanente) {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
                         .setSmallIcon(logo)
@@ -324,28 +325,36 @@ public class UtilActivity {
         NotificationManager mNotifyMgr =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notification = mBuilder.build();
-        if (permanente) {
-            notification.flags = Notification.FLAG_ONGOING_EVENT;
+        if (intent != null) {
+            PendingIntent myIntent = PendingIntent.getActivity(context, 0, intent, 0);
+            notification.setLatestEventInfo(context, titulo, texto, myIntent);
         }
-        mNotifyMgr.notify(mNotificationId, notification);
-    }
-
-    public static void makeNotification(Context context, String tag, Integer notificacaoCodigo, int logo, String titulo, String texto, String aviso, Boolean permanente) {
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(context)
-                        .setSmallIcon(logo)
-                        .setContentTitle(titulo)
-                        .setContentText(texto)
-                        .setTicker(aviso)
-                        .setAutoCancel(true);
-        int mNotificationId = notificacaoCodigo;
-        NotificationManager mNotifyMgr =
-                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        Notification notification = mBuilder.build();
         if (permanente) {
             notification.flags = Notification.FLAG_ONGOING_EVENT;
         }
         mNotifyMgr.notify(tag, mNotificationId, notification);
+    }
+
+    public static void makeNotification(Context context, Integer notificacaoCodigo, int logo, String titulo, String texto, String aviso, Intent intent, Boolean permanente) {
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(context)
+                        .setSmallIcon(logo)
+                        .setContentTitle(titulo)
+                        .setContentText(texto)
+                        .setTicker(aviso)
+                        .setAutoCancel(true);
+        int mNotificationId = notificacaoCodigo;
+        NotificationManager mNotifyMgr =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        Notification notification = mBuilder.build();
+        if (intent != null) {
+            PendingIntent myIntent = PendingIntent.getActivity(context, 0, intent, 0);
+            notification.setLatestEventInfo(context, titulo, texto, myIntent);
+        }
+        if (permanente) {
+            notification.flags = Notification.FLAG_ONGOING_EVENT;
+        }
+        mNotifyMgr.notify(mNotificationId, notification);
     }
 
     public static void cancelNotification(Context context, Integer notificacaoCodigo) {

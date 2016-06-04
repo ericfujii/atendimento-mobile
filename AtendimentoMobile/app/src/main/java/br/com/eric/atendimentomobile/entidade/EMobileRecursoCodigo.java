@@ -8,7 +8,9 @@ public enum EMobileRecursoCodigo {
     VERIFICAR_PACOTE("verificarPacote"),
     LOGAR("logar"),
     SALVAR_PEDIDO("salvarPedido"),
-    RECUPERAR_FILA("recuperarFila");
+    RECUPERAR_FILA("recuperarFila"),
+    VERIFICAR_MENSAGENS("verificarMensagens"),
+    ENVIAR_MENSAGEM("enviarMensagem");
 
     private String codigo;
 

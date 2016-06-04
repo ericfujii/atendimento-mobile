@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/ListViewItem"
+    tools:context=".activities.MensagensActivity">
+
+    <TextView
+        android:id="@+id/remetenteTV"
+        style="@style/ListViewItemNome"
+        android:text="BALCÃO" />
+
+    <TextView
+        android:id="@+id/mensagemTV"
+        style="@style/ListViewItemDescricao"
+        android:layout_below="@+id/remetenteTV"
+        android:text="OI TUDO BEM" />
+
+    <TextView
+        android:id="@+id/dataMensagemTV"
+        style="@style/WrapWrap"
+        android:layout_alignParentRight="true"
+        android:text="12/12/2016 12:16:22"
+        android:layout_marginRight="10dp"/>
+
+</RelativeLayout>

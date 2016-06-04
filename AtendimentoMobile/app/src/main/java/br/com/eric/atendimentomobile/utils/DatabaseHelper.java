@@ -38,6 +38,18 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 "nome TEXT," +
                 "login TEXT," +
                 "situacao TEXT)");
+
+        db.execSQL("CREATE TABLE configuracao_sistema (" +
+                "descricao TEXT PRIMARY KEY, " +
+                "valor TEXT)");
+
+        db.execSQL("CREATE TABLE mensagem (" +
+                "id INTEGER PRIMARY KEY, " +
+                "mensagem TEXT," +
+                "data_mensagem DATE," +
+                "visualizada TEXT," +
+                "_remetente INTEGER," +
+                "_destinatario INTEGER)");
     }
 
     @Override
