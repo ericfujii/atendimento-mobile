@@ -68,7 +68,7 @@ public class PedidoActivity extends ActionBarActivity {
             fragments = new ArrayList<>();
             titles = new ArrayList<>();
 
-            List<ProdutoTipo> produtoTipos = entityManager.getByWhere(ProdutoTipo.class, "situacao = 'ATIVO'", "nome DESC");
+            List<ProdutoTipo> produtoTipos = entityManager.getByWhere(ProdutoTipo.class, "situacao = 'ATIVO'", "ordem ASC");
             for (ProdutoTipo produtoTipo : produtoTipos) {
                 PedidoFragment pedidoFragment = new PedidoFragment();
                 pedidoFragment.setProdutoTipo(produtoTipo);

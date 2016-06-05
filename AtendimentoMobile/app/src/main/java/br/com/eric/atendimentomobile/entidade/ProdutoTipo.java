@@ -16,6 +16,9 @@ public class ProdutoTipo {
 	
 	@XmlElement(name="bebida")
 	private Boolean bebida;
+
+	@XmlElement(name="ordem")
+	private Integer ordem;
 	
 	@XmlElement(name="situacao")
 	private ESituacao situacao = ESituacao.ATIVO;
@@ -43,5 +46,13 @@ public class ProdutoTipo {
 	}
 	public void setBebida(Boolean bebida) {
 		this.bebida = bebida;
+	}
+
+	public Integer getOrdem() {
+		return ordem;
+	}
+
+	public void setOrdem(Integer ordem) {
+		this.ordem = ordem;
 	}
 }

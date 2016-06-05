@@ -31,6 +31,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                 "id INTEGER PRIMARY KEY, " +
                 "nome TEXT," +
                 "bebida TEXT," +
+                "ordem INTEGER," +
                 "situacao TEXT)");
 
         db.execSQL("CREATE TABLE usuario (" +
