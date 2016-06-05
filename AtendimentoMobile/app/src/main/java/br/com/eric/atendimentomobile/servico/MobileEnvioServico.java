@@ -19,7 +19,7 @@ import br.com.eric.atendimentomobile.utils.JsonParser;
  * Created by marceloeugenio on 3/16/16.
  */
 public class MobileEnvioServico {
-    public static String URL = "http://192.168.1.200:8080/AtendimentoWeb/rest/atendimentoRest"; // Eric
+    public static String URL = "http://192.168.0.100:8080/AtendimentoWeb/rest/atendimentoRest"; // Eric
 
     private Class<? extends MobileRetornavel> classeRetorno;
 
